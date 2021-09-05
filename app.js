@@ -1,6 +1,7 @@
 const express = require('express')
 const morgan = require('morgan')
 const mongoose = require('mongoose')
+const router = require('./routes')
 
 
 mongoose
@@ -12,10 +13,9 @@ mongoose
     })
     .catch(err => {
         console.log(err)
-
     })
 
-const contactRoutes = require('./contactRoutes')
+// const contactRoutes = require('./restapi/contactRoutes')
 
 const app = express()
 
@@ -27,11 +27,18 @@ app.use(express.urlencoded({
 }))
 app.use(express.json()) //accepting both html and json data
 
+// mongoose schema 
+// let testSchema = new Schema({
+//     name: String,
+//     let Test = 
+// })
+
 // app.use('/contacts', contactRoutes)
 
 // app.get('*', (req, res) => {
 //         res.send("please use the correct routes")
 // })
+app.use('/contacts',router)
 app.get('/', (req, res) => {
     let post = {
         title: "test title",
