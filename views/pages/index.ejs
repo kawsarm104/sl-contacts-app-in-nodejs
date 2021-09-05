@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= title %></title>
+</head>
+<body>
+    <%- include('./nav.ejs') %>
+    <%= title %>
+    <h1>Contact app</h1>
+    <%= new Date().toString() %>
+    <% if(post.published) { %>
+        <h3>title: <%= post.title %></h3>
+        <h3>body: <%= post.body %></h3>
+    <% }else{ %>
+    
+        <p>post is not published</p>
+    <% } %>
+    <ul>
+        <% for(let p of posts ) { %>
+
+            <li>
+                <%= p.title %>by  <%= p.author %>
+            </li>
+     <% } %>
+    </ul>
+    
+
+</body>
+</html>
