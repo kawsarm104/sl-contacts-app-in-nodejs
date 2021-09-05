@@ -1,5 +1,19 @@
 const express = require('express')
 const morgan = require('morgan')
+const mongoose = require('mongoose')
+
+
+mongoose
+    .connect('mongodb://localhost:27017/Contact-App', {
+        useNewUrlParser: true,
+    })
+    .then(() => {
+        console.log("database connected")
+    })
+    .catch(err => {
+        console.log(err)
+
+    })
 
 const contactRoutes = require('./contactRoutes')
 
